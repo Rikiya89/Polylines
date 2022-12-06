@@ -21,7 +21,48 @@ void ofApp::setup(){
     closedShapePolyline.addVertex(800, 125);
     closedShapePolyline.addVertex(700, 150);
     closedShapePolyline.close();  // Connect first and last vertices
+
+    straightSegmentPolyline.addVertex(200, 200);  // Add a new point: (200, 200)
+    straightSegmentPolyline.addVertex(250, 250);  // Add a new point: (250, 250)
+    straightSegmentPolyline.addVertex(300, 200);  // etc...
+    straightSegmentPolyline.addVertex(350, 250);
+    straightSegmentPolyline.addVertex(400, 200);
+
+    curvedSegmentPolyline.curveTo(450, 200);  // These curves are Catmull-Rom splines
+    curvedSegmentPolyline.curveTo(450, 200);  // Necessary Duplicate for Control Point
+    curvedSegmentPolyline.curveTo(500, 250);
+    curvedSegmentPolyline.curveTo(550, 200);
+    curvedSegmentPolyline.curveTo(600, 250);
+    curvedSegmentPolyline.curveTo(650, 200);
+    curvedSegmentPolyline.curveTo(650, 200);  // Necessary Duplicate for Control Point
+
+    closedShapePolyline.addVertex(700, 225);
+    closedShapePolyline.addVertex(800, 200);
+    closedShapePolyline.addVertex(900, 225);
+    closedShapePolyline.addVertex(800, 250);
+    closedShapePolyline.close();  // Connect first and last vertices
+
+    straightSegmentPolyline.addVertex(300, 300);  // Add a new point: (300, 300)
+    straightSegmentPolyline.addVertex(350, 350);  // Add a new point: (350, 350)
+    straightSegmentPolyline.addVertex(400, 300);  // etc...
+    straightSegmentPolyline.addVertex(450, 350);
+    straightSegmentPolyline.addVertex(500, 300);
+
+    curvedSegmentPolyline.curveTo(550, 300);  // These curves are Catmull-Rom splines
+    curvedSegmentPolyline.curveTo(550, 300);  // Necessary Duplicate for Control Point
+    curvedSegmentPolyline.curveTo(600, 350);
+    curvedSegmentPolyline.curveTo(650, 300);
+    curvedSegmentPolyline.curveTo(700, 350);
+    curvedSegmentPolyline.curveTo(750, 300);
+    curvedSegmentPolyline.curveTo(750, 300);  // Necessary Duplicate for Control Point
+
+    closedShapePolyline.addVertex(800, 325);
+    closedShapePolyline.addVertex(900, 300);
+    closedShapePolyline.addVertex(1000, 325);
+    closedShapePolyline.addVertex(900, 350);
+    closedShapePolyline.close();  // Connect first and last vertices
 }
+
 
 //--------------------------------------------------------------
 void ofApp::update(){
@@ -31,8 +72,8 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     ofBackground(0);
-    ofSetLineWidth(2.0);// Line widths apply to polylines
-    ofSetColor(255, 100, 0);
+    ofSetLineWidth(3.0);// Line widths apply to polylines
+    ofSetColor(0, 204, 0);
     straightSegmentPolyline.draw(); // This is how we draw polylines
     curvedSegmentPolyline.draw();// Nice and easy, right?
     closedShapePolyline.draw();
